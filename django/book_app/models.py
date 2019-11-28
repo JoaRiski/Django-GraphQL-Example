@@ -10,7 +10,11 @@ class Author(models.Model):
 
 class Book(models.Model):
     name = models.CharField(max_length=64)
-    author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name="books")
+    author = models.ForeignKey(
+        Author,
+        on_delete=models.PROTECT,
+        related_name="books"
+    )
 
     def __str__(self):
         return self.name
