@@ -30,14 +30,20 @@ class AddBookMutation(graphene.Mutation):
 
 
 class Query(graphene.ObjectType):
-    books = graphene.List(BookType)
-    authors = graphene.List(AuthorType)
+    books = graphene.List(BookType, name=graphene.String(required=False))
+    authors = graphene.List(AuthorType, name=graphene.String(required=False))
 
-    def resolve_books(self, info, **kwargs):
-        return Book.objects.all()
+    def resolve_books(self, info, name=None):
+        query = Book.objects.all()
+        if name:
+            query = query.filter(name=name)
+        return query
 
-    def resolve_authors(self, info, **kwargs):
-        return Author.objects.all()
+    def resolve_authors(self, info, name=None):
+        query = Author.objects.all()
+        if name:
+            query = query.filter(name=name)
+        return query
 
 
 class Mutation(graphene.ObjectType):
