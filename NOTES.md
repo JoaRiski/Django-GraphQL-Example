@@ -68,3 +68,19 @@ query GetAwesomeBook2 {
   }
 }
 ```
+
+
+```
+query getBooks($awesomeBookName: String!) {
+  awesomeBooks: books(name: $awesomeBookName) {
+    name
+  }
+  allBooks: books {
+    name
+  }
+}
+
+{
+  "awesomeBookName": "Awesome book 2"
+}
+```
