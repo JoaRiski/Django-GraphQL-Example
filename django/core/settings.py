@@ -38,9 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # 3rd party
+    'graphene_django',
+
     # Custom
     'book_app',
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'graphql_api.schema.schema'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
