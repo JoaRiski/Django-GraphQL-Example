@@ -46,7 +46,7 @@ query GetBooksByAuthor {
 }
 ```
 
-```
+```graphql
 query GetBooksByJoa {
   authors(name: "Joa Riski") {
     name
@@ -57,7 +57,7 @@ query GetBooksByJoa {
 }
 ```
 
-```
+```graphql
 query GetAwesomeBook2 {
   books(name: "Awesome book 2") {
     name
@@ -70,7 +70,7 @@ query GetAwesomeBook2 {
 ```
 
 
-```
+```graphql
 query getBooks($awesomeBookName: String!) {
   awesomeBooks: books(name: $awesomeBookName) {
     name
